@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEFT - RIGHT</title>
+    <script src="teclado.js"></script>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    
+    <script>
+        var canvas = document.getElementById("canvas")
+        var context = canvas.getContext("2d")
+
+        var posicao = 0
+        denharPersonagem()
+
+        var teclado = new teclado(document)
+
+        requestAnimationFrame(animar)
+
+        function animar (){
+
+            if(teclado.presionado(SETA_ESQUERDA)){
+                posicao -= 10
+            }else if(teclado.presionado(SETA_DIREITA)){
+                posicao += 10
+            }
+            requestAnimationFrame(animar)
+            denharPersonagem()
+        }
+
+        function denharPersonagem(){
+            context.clearRect(0, 0, canvas.width, canvas.height)
+            context.fillRect(posicao, 100, 30 ,60)
+        }
+    </script>
+</body>
+</html>

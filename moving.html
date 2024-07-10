@@ -16,24 +16,24 @@
         var posicao = 0
         denharPersonagem()
 
-        var teclado = new teclado(document)
+        var teclado = new Teclado(document)
 
         requestAnimationFrame(animar)
 
         function animar (){
 
-            if(teclado.presionado(SETA_ESQUERDA)){
+            if(teclado.pressionado(SETA_ESQUERDA)){
                 posicao -= 10
-            }else if(teclado.presionado(SETA_DIREITA)){
+            }else if(teclado.pressionado(SETA_DIREITA)){
                 posicao += 10
             }
-            requestAnimationFrame(animar)
             denharPersonagem()
+            requestAnimationFrame(animar)
         }
 
         function denharPersonagem(){
-            context.clearRect(0, 0, canvas.width, canvas.height)
-            context.fillRect(posicao, 100, 30 ,60)
+            context.clearRect(0 , 0, canvas.width, canvas.height)
+            context.fillRect(posicao,100,30,60)
         }
     </script>
 </body>
